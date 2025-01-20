@@ -9,9 +9,9 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        return view('posts.index')->with(['posts' => $post->getPaginateByLimit()]);
-    }
-
+        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(3)]);
+    }  
+  
     public function show(Post $post)
     {
         return view('posts.show')->with(['post' => $post]);
@@ -29,3 +29,4 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
 }
+?>
